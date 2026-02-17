@@ -1,0 +1,34 @@
+header {
+    background-color: #E76C1F;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 128px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+.header-pos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 128px;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+html {
+    font-family: 'palanquin';
+}
+
+h1 {
+    margin: 0;
+}

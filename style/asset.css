@@ -24,3 +24,27 @@ a {
 a :hover{
     color: red;
 }
+
+
+header img {
+    height: 38px;
+    width: 92.56px;
+
+}
+
+.bar {
+        width: 45px;
+        height: 4px;
+        background-color: #ffffff;
+        transition: 0.4s;
+}
+
+.burger-menu {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}

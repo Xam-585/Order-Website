@@ -10,6 +10,13 @@
     margin: 0px;
 }
 
+.m-left-right {
+    margin: 0px 16px;
+}
+.m-t8 {
+    margin-top: 8px;
+}
+
 .container {
     max-width: 1440px;
 }
@@ -22,3 +29,16 @@
     display: none;
 }
 
+.clr-orange {
+    color: #E76C1F;
+}
+
+.clr-black {
+    color: #363534;
+}
+
+.d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

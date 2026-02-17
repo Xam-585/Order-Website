@@ -1,0 +1,47 @@
+.hero-container {
+    max-width: 1440px;
+    width: 100%;
+}
+
+.hero-background-image {
+    background-image: url('../assets/img/background-img.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 508px;
+    width: 100%;
+}
+
+.hero-burger-icon-position {
+    display: flex;
+    justify-content: center;
+    margin-top: -100px;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    
+}
+
+
+.hero-burger-icon {
+
+    border-radius: 999px;
+    border: 13px solid #FDEADC; 
+    background-image: url('../assets/icons/burger-icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 200px;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+}
