@@ -1,9 +1,51 @@
 .menu-section {
     max-width: 1440px;
+    margin-bottom: 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+
+.menu-description {
+    width: 354px;
 }
 
 .div-line{
-    height: 28px;
-    background-color: #FDEADC;
+    height: 60px;
+    width: 100%;
+    background-color: #E76C1F;
+}
+
+
+
+.div-line img {
+    height: 91px;
+    width: 81px;
+    margin: 0 80px;
+}
+
+.div-line-positioning {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
 }
+
+.menu-box {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    width: 720px;
+}
+
+
+.add-item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-end;
+}
+

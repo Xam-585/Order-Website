@@ -22,7 +22,8 @@ body {
 
 main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 html {
@@ -31,4 +32,19 @@ html {
 
 h1 {
     margin: 0;
+}
+
+footer {
+    height: 128px;
+    background-color: #E76C1F;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-pos {
+    display: flex;
+    height: 100px;
+    align-items: flex-end;
+    gap: 72px;
 }
