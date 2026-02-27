@@ -1,5 +1,69 @@
 .div-line-black{
-    height: 1px;
+    height: 3px;
     width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 999px;
+    margin: 4px 0px;
+}
+
+.basket {
+    z-index: 1;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.basket h2{
+    text-align: center;
+}
+
+.basket-container {
+    position: sticky;
+    top: 50vh;
     background-color: #363534;
+    padding: 48px;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+
+}
+
+.basket-meal-container {
+    border-radius: 12px;
+    padding: 8px;
+    min-width: 380px;
+    margin-bottom: 10px;
+    margin-right: 8px;
+}
+
+.scroll-container {
+    max-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 68px;
+}
+
+.basket ::-webkit-scrollbar {
+    border: none;
+    width: 6px;
+    height: 60px;
+}
+
+.basket ::-webkit-scrollbar-track {
+   height: 60px;
+  border-radius: 999px;
+}
+
+.basket ::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.img-shop-card {
+    height: 120px;
+    width: 120px;
 }

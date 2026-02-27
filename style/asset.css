@@ -8,7 +8,7 @@ button {
 
 }
 
-button :hover {
+.btn :hover {
     background-color: azure;
 }
 
@@ -17,6 +17,21 @@ button :hover {
     border: none;
     border-radius: 20px;
 }
+
+
+.btn-white {
+    background-color: #ffffff;
+    border: none;
+    padding: 0px;
+}
+
+.btn-buy {
+    border: none;
+    border-radius: 60px;
+    padding: 8px 0px;
+}
+
+
 
 /* a-tags */
 
@@ -35,10 +50,10 @@ header img {
 }
 
 .bar {
-        width: 45px;
-        height: 4px;
-        background-color: #ffffff;
-        transition: 0.4s;
+    width: 45px;
+    height: 4px;
+    background-color: #ffffff;
+    transition: 0.4s;
 }
 
 .burger-menu {

@@ -20,14 +20,11 @@ body {
     width: 100%;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 
 html {
     font-family: 'palanquin';
+    scroll-behavior: smooth;
 }
 
 h1 {

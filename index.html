@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./style/asset.css">
     <link rel="stylesheet" href="./style/hero.css">
     <link rel="stylesheet" href="./style/menu.css">
+    <link rel="stylesheet" href="./style/dialog.css">
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
     <script src="./script.js"></script>
@@ -27,40 +28,12 @@
             </nav>
         </div>
     </header>
-    <main id="main">
-        <section class="hero-container m-b80" id="hero-section"></section>
-        <section id="basket">
-            <div>
-                <h2>Your Basket</h2>
-                <div>
-                    <span>1 x Meal Name</span>
-                    <div>
-                        <div>
-                            <button><img></button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <span>Subtotal</span>
-                        <span>36,7</span>
-                    </div>
-                    <div>
-                        <span>Delivery fee</span>
-                        <span>4,99</span>
-                    </div>
-                    <div class="div-line-black"></div>
-                    <div>
-                        <span>Total</span>
-                        <span>41,9</span>
-                    </div>
-                </div>
-                <button>Buy now (Price)</button>
-            </div>
-
-        </section>
+    <main>
+        <dialog id="dialog"></dialog>
+        <section id="main-content" class="main-content">
+            <div class="hero-container m-b80" id="hero-section"></div>
+        </section>      
+        <section id="basket" class="basket"></section>
     </main>
     <footer>
         <div class="wrapper clr-white font-s-22 footer-pos">

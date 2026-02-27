@@ -1,0 +1,32 @@
+.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    z-index: 1;
+}
+
+dialog {
+    background-color: transparent;
+    border: none;
+    position: fixed;
+}
+
+dialog img {
+    height: 150px;
+    width: auto;
+}
+
+.dialog-close {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+
+.dialog-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
