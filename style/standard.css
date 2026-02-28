@@ -1,3 +1,6 @@
+/*Box Models*/
+
+
 .p-0 {
     padding: 0px;
 }
@@ -26,6 +29,10 @@
     margin: 0px;
 }
 
+.m-b4 {
+    margin-bottom: 4px;
+}
+
 .m-b80 {
     margin-bottom: 80px;
 }
@@ -45,6 +52,11 @@
     border-radius: 12px;
 }
 
+/*width*/
+.width-100 {
+    width: 100%;
+}
+
 .container {
     max-width: 1440px;
 }
@@ -52,7 +64,33 @@
 .wrapper {
     max-width: 1440px;
 }
+/*positions*/
 
+.d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.d-flex-space-btw {
+    display: flex;
+    justify-content: space-between;
+}
+
+.transformY-4 {
+    transform: translateY(-4px);
+}
+
+.transform-rotate-180 {
+    transform: rotateY(-180deg);
+}
+
+.text-align-c {
+    text-align: center;
+}
+
+/*color*/
 .d-none {
     display: none;
 }
@@ -92,30 +130,12 @@
     color: #726D6D;
 }
 
-.d-flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-}
-
-.d-flex-space-btw {
-    display: flex;
-    justify-content: space-between;
-}
-
-.transformY-4 {
-    transform: translateY(-4px);
-}
-
-.transform-rotate-180 {
-    transform: rotateY(-180deg);
-}
-
-.text-align-c {
-    text-align: center;
-}
-
+/*other*/
 .no-scroll {
     overflow: hidden;
+}
+
+.border-top {
+    border-top-color: #726D6D;
+    border-top-style: solid;
 }

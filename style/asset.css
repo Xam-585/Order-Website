@@ -9,7 +9,7 @@ button {
 }
 
 .btn :hover {
-    background-color: azure;
+    background-color: #ffffff;
 }
 
 .btn {
@@ -25,13 +25,91 @@ button {
     padding: 0px;
 }
 
-.btn-buy {
-    border: none;
-    border-radius: 60px;
-    padding: 8px 0px;
+.btn-trash {
+    background-image: url('../assets/icons/delete.png');
+    height: 36px;
+    width: 18px;
+    margin-bottom: 2px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.btn-trash:hover{
+    background-image: url('../assets/icons/delete-hover.png');
+    height: 36px;
+    width: 18px;
+    margin-bottom: 2px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
+.hover-btn-color-orange:hover {
+    color:#E76C1F;
+}
+
+.btn-buy {
+    border: none;
+    border-radius: 60px;
+    padding: 12px;
+}
+
+.btn-buy:hover {
+    background-color:#e92323;
+}
+/*Button Responsive*/
+.home-btn {
+    background-image: url('../assets/icons/home.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #363534; 
+    height: 30px;
+    width: 30px;
+}
+
+.home-btn:active{
+    background-image: url('../assets/icons/home-onclick.png');
+}
+
+.shopping-cart-btn {
+    background-image: url('../assets/icons/shoping-cart-default.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #363534;
+    height: 30px;
+    width: 30px;
+}
+.shopping-cart-btn:active{
+    background-image: url('../assets/icons/shoping-cart-active2.png');
+    background-size: 30px 30px;
+}
+
+.order-btn {
+    background-image: url('../assets/icons/takeout_dining_2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #363534; 
+    height: 30px;
+    width: 30px;
+}
+.order-btn:active{
+    background-image: url('../assets/icons/takeout_dining_oncklick.png');
+}
+.profile-btn {
+    background-image: url('../assets/icons/person.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #363534; 
+    height: 30px;
+    width: 30px;
+}
+.profile-btn:active{
+    background-image: url('../assets/icons/person-onclick.png');
+}
 
 /* a-tags */
 

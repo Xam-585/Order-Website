@@ -29,4 +29,17 @@ dialog img {
     flex-direction: column;
 }
 
+.dialog-responsive {
+    min-height: 100vh;
+    min-width: 100%;
+    margin: 0;
+    padding: 0px;
+}
+
+.basket-responsive {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 

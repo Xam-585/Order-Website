@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./style/hero.css">
     <link rel="stylesheet" href="./style/menu.css">
     <link rel="stylesheet" href="./style/dialog.css">
+    <link rel="stylesheet" href="./style/responsive.css">
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
     <script src="./script.js"></script>
@@ -30,10 +31,17 @@
     </header>
     <main>
         <dialog id="dialog"></dialog>
+        <dialog id="dialog-responsive" class="dialog-responsive clr-backg-black"></dialog>
         <section id="main-content" class="main-content">
             <div class="hero-container m-b80" id="hero-section"></div>
         </section>      
         <section id="basket" class="basket"></section>
+        <section class="responsive-control clr-backg-black">
+            <button class="home-btn" onclick="openBasketResponsive()"></button>
+            <button class="shopping-cart-btn"></button>
+            <button class="order-btn"></button>
+            <button class="profile-btn"></button>
+        </section>
     </main>
     <footer>
         <div class="wrapper clr-white font-s-22 footer-pos">
