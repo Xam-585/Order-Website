@@ -10,12 +10,11 @@
     align-items: center;
 }
 
-
-
-
-
-
-
+@media (min-width: 950px) {
+    .responsive-control {
+        display: none;
+    }
+}
 
 @media (max-width: 1490px) {
     .menu-box {
@@ -43,17 +42,210 @@
 }
 
 @media (max-width: 950px) {
+    .basket {
+        display: none;
+    }
     .menu-section {
     align-items: center;
     }
-
-    .basket {
-    display: none;
-    }
     .menu-box {
-        width: 720px;;
+        width: 720px;
     }
     footer {
     padding-bottom: 80px;
     }
+}
+
+@media (max-width: 800px) {
+    .menu-box {
+        width: 500px;
     }
+    .div-line img {
+        margin: 0 40px;
+    }
+}
+
+@media (max-width: 660px) {
+    .font-s-48 {
+        font-size: 36px;
+    }
+    .div-line img {
+        height: 45px;
+        width: 40px;
+    }
+    .div-line {
+        height: 38px;
+    }
+    .m-b80 {
+        margin-bottom: 40px;
+    }
+    .menu-section {
+        margin-bottom: 64px;
+    }
+    .font-s-24 {
+        font-size: 20px;
+    }
+    footer {
+        padding-bottom: 40px;
+    }
+    .footer-pos {
+        height: 60px;
+    }
+    .font-s-22 {
+        font-size: 16px;
+    }
+    .menu-box {
+        width: 450px;
+    }
+    .font-s-32 {
+    font-size: 28px;
+    }
+    .basket-responsive {
+    margin: 0px 16px;
+    }
+    .scroll-container {
+        max-height: 270px;
+    }
+    dialog img {
+        height: 90px;
+    }
+}
+
+@media (max-width: 580px) {
+    .menu-box {
+        width: 350px;
+    }
+    .div-line {
+        height: 28px;
+    }
+    .footer-pos {
+        gap: 40px;
+    }
+    .hero-burger-icon {
+        border: 8px solid #FDEADC;
+        height: 100px;
+        width: 100px;
+    }
+    .hero-burger-icon-position {
+        margin-top: -60px;
+    }
+    .font-s-48 {
+        font-size: 28px;
+    }
+    .font-s-24 {
+        font-size: 16px;
+    }
+    .font-s-16{
+        font-size: 14px;
+    }
+    .font-s-18 {
+        font-size: 12px;
+    }
+    .font-s-20 {
+        font-size: 14px;
+    }
+    .hero-background-image {
+        height: 280px;
+    }
+    .header-pos {
+        min-height: 100px;
+    }
+    header {
+       height: 100px; 
+    }
+    header img {
+        height: 26px;
+        width: 64.56px;
+    }
+    .bar {
+        width: 36px;
+    }
+    .menu-description {
+        width: 250px;
+    }
+    dialog img {
+        height: 60px;
+    }
+    .font-s-42 {
+        font-size: 28px;
+    }
+    .font-s-29{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 450px) {
+    .footer-pos {
+        gap: 16px;
+    }
+    .basket-meal-container {
+        min-width: 300px;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .menu-box {
+        width: 280px;
+    }
+    .font-s-48 {
+        font-size: 20px;
+    }
+    .star-rating {
+        margin-top: 4px;
+    }
+    .font-s-32 {
+        font-size: 16px;
+    }
+    .img-shop-card {
+        height: 100px;
+        width: 100px;
+    }
+    .basket-meal-container{
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 350px) {
+    .menu-box {
+        width: 250px;
+    }
+    .font-s-48 {
+        font-size: 20px;
+    }
+    .star-rating {
+        margin-top: 4px;
+    }
+    .menu-section-img {
+        height: 150px;
+    }
+    .hero-background-image {
+        height: 200px;
+    }
+    .hero-burger-icon {
+        border: 8px solid #FDEADC;
+        height: 50px;
+        width: 50px;
+    }
+    .hero-burger-icon-position {
+        margin-top: -35px;
+    }
+    .font-s-22 {
+        font-size: 12px;
+    }
+    .div-line img {
+        margin: 0 20px;
+    }
+    .m-left-right {
+        margin: 0px 8px;
+    }
+    .scroll-container {
+        max-height: 250px;
+    }
+    .font-s-42 {
+        font-size: 20px;
+    }
+    .font-s-29 {
+        font-size: 12px;
+    }
+}

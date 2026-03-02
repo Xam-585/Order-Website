@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestell App</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/Logo-Bestell-App.ico">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./style/standard.css">
     <link rel="stylesheet" href="./style/fonts.css">
@@ -18,7 +19,7 @@
     <script src="./script.js"></script>
 
 </head>
-<body onload="loadPage();">
+<body onload="loadPage()">
     <header>
         <div class="wrapper header-pos">
             <img src="./assets/icons/Logo-Bestell-App.png" alt="Icon Order Website" class="m-left-right">
@@ -36,11 +37,11 @@
             <div class="hero-container m-b80" id="hero-section"></div>
         </section>      
         <section id="basket" class="basket"></section>
-        <section class="responsive-control clr-backg-black">
-            <button class="home-btn" onclick="openBasketResponsive()"></button>
-            <button class="shopping-cart-btn"></button>
-            <button class="order-btn"></button>
-            <button class="profile-btn"></button>
+        <section class="responsive-control clr-backg-black " id="responsive-control">
+                <button class="home-btn" onclick="openFunctionNotImplemented()" aria-label="Home Button"></button>
+                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"></button>
+                <button class="order-btn" onclick="openPopUpDeliverOrder()" aria-label="Order delivery"></button>
+                <button class="profile-btn" onclick="openFunctionNotImplemented()" aria-label="Profile Button"></button>
         </section>
     </main>
     <footer>

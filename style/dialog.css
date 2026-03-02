@@ -22,7 +22,6 @@ dialog img {
     width: 100%;
 }
 
-
 .dialog-container {
     display: flex;
     align-items: center;
@@ -41,5 +40,6 @@ dialog img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 80px;
 }
 

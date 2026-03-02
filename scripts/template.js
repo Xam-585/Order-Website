@@ -9,7 +9,7 @@ function templateDishes(i, btn) {
                 </div>
                 <div class="add-item" id="add-item${i}">
                     <span class="font-s-24 font-w-600">${myDishes[i].price}€</span>
-                    <button class="font-s-16 font-w-600 btn p-8 hover-btn-color-orange" id="add-Basket${i}" onclick="addDish(${i})">${btn}</button>
+                    <button class="font-s-16 font-w-600 btn p-8 hover-btn-color-orange" id="add-Basket${i}" onclick="addDish(${i})" aria-label="Add Dish">${btn}</button>
                 </div>
             </div>
     `
@@ -33,7 +33,7 @@ function templateHero(rating, reviews) {
                     </div>
                 </div>
                 <div class="d-flex-center">
-                    <span class="font-w-700 font-s-24">The best Burgers, Pizza, and Green, all in one great place</span>
+                    <span class="font-w-700 font-s-24 text-align-c">The best Burgers, Pizza, and Green, all in one great place</span>
                 </div>
             </div>
    ` 
@@ -56,7 +56,7 @@ function templateSection(i) {
 
 function templateBasket(priceMeals, priceTotal, deliveryFee) {
     return `
-            <div class="basket-container">
+            <div class="basket-container" id="basket-container-default">
                 <h2 class="font-w-700 font-s-32 clr-white">Your Basket</h2>
                 <div class="scroll-container" id="basket-items"></div>
                 <div class="m-b24"> 
@@ -74,22 +74,22 @@ function templateBasket(priceMeals, priceTotal, deliveryFee) {
                         <span id="price-total">${priceTotal}€</span>
                     </div>
                 </div>
-                <button class="font-w-700 font-s-32 btn-buy clr-white clr-backg-orange" id="price-total-btn" onclick="openPopUpDeliverOrder()">Buy now ${priceTotal}€</button>
+                <button class="font-w-700 font-s-32 btn-buy clr-white clr-backg-orange" id="price-total-btn" onclick="openPopUpDeliverOrder()" aria-label="Order Button">Buy now ${priceTotal}€</button>
             </div> 
     `
 }
 
 function templateBasketEmpty() {
     return `
-            <div class="basket-container">
-                <h2 class="font-w-700 font-s-32 clr-lightOrange">Your Basket</h2>
-                <div class="font-w-500 font-s-24 clr-lightOrange text-align-c m-b80">
+            <div class="basket-container" id="basket-container-default">
+                <h2 class="font-w-700 font-s-32 clr-white">Your Basket</h2>
+                <div class="font-w-500 font-s-24 clr-white text-align-c m-b80">
                     <span>Nothing here yet.</span>
                     <br>
                     <span>Go ahead and choose something delicious!</span>
                 </div>
                 <div class="d-flex-center">
-                    <img class="img-shop-card" src="./assets/icons/shopping_cart.png" alt="">
+                    <img class="img-shop-card" src="./assets/icons/shopping_cart.png" alt="shop card image">
                 </div>
             </div>
     `
@@ -101,14 +101,14 @@ function templateBasketItems(i, priceMeal) {
                     <div class="clr-backg-white  basket-meal-container" id="basket-container${i}">
                         <div class="d-flex-space-btw">
                             <span class="font-w-700 font-s-22 clr-gray" id="basket-dish-name${i}">${myDishes[i].amount} x ${myDishes[i].name}</span>
-                            <button class="btn-white hover-btn-color-orange d-none btn-trash" id="trashBtn-top-${i}" onclick="deletItemBasket(${i})"></button>
+                            <button class="btn-white hover-btn-color-orange d-none btn-trash" id="trashBtn-top-${i}" onclick="deletItemBasket(${i})" aria-label="Delete Order"></button>
                         </div>
                         <div class="d-flex-space-btw" id="name-overview${i}">
                             <div class="d-flex-center">
-                                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange btn-trash" id="trashBtn-bottum-${i}" onclick="deletItemBasket(${i})"></button>
-                                <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="removeOneDish(${i})">-</button>
-                                <div class="font-w-600 font-s-24 transformY-4">1</div>
-                                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange" onclick="addDish(${i})">+</button>
+                                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange btn-trash" id="trashBtn-bottum-${i}" onclick="deletItemBasket(${i})" aria-label="Delete Order"></button>
+                                <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="removeOneDish(${i})" aria-label="Remove one Dish">-</button>
+                                <div class="font-w-600 font-s-24 transformY-4">${myDishes[i].amount}</div>
+                                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange" onclick="addDish(${i})" aria-label="Add Dish">+</button>
                             </div>
                             <span class="font-w-700 font-s-22 clr-gray">${priceMeal}€</span>
                         </div>
@@ -119,10 +119,10 @@ function templateBasketItems(i, priceMeal) {
 function templateUpdateBasketItem(i, priceMeal) {
     return `
             <div class="d-flex-center">
-                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange btn-trash" id="trashBtn-bottum-${i}" onclick="deletItemBasket(${i})"></button>
-                <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="removeOneDish(${i})">-</button>
+                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange btn-trash" id="trashBtn-bottum-${i}" onclick="deletItemBasket(${i})" aria-label="Delete Order"></button>
+                <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="removeOneDish(${i})" aria-label="Remove one Dish">-</button>
                 <div class="font-w-600 font-s-24 transformY-4">${myDishes[i].amount}</div>
-                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange" onclick="addDish(${i})">+</button>
+                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange" onclick="addDish(${i})" aria-label="Add Dish">+</button>
             </div>
             <span class="font-w-700 font-s-22 clr-gray">${priceMeal}€</span>
     `
@@ -133,11 +133,11 @@ function templateDialogOrderDeliver() {
     return `
             <div class="clr-backg-black clr-white dialog-container p-32 border-r-12">
                 <div class="dialog-close">
-                    <button class="btn-white clr-backg-black clr-white font-s-24 hover-btn-color-orange" onclick="closeDialog('dialog')"> x </button>
+                    <button class="btn-white clr-backg-black clr-white font-s-24 hover-btn-color-orange" onclick="closeDialog('dialog')" aria-label="Close Dialog"> x </button>
                 </div>
-                <img src="./assets/icons/foodsTruck.png" class="transform-rotate-180">
-                <span class="font-w-700 font-s-42">Order confirmed!</span>
-                <span class="font-w-700 font-s-29">Youre food is on the way!</span>
+                <img src="./assets/icons/foodsTruck.png" class="transform-rotate-180" alt="Foodtruck Image">
+                <span class="font-w-700 font-s-42 text-align-c">Order confirmed!</span>
+                <span class="font-w-700 font-s-29 text-align-c">Youre food is on the way!</span>
             </div>
     `
 }
@@ -146,49 +146,62 @@ function templateDialogOrderDenied() {
     return `
             <div class="clr-backg-black clr-white dialog-container p-32 border-r-12">
                 <div class="dialog-close">
-                    <button class="btn-white clr-backg-black clr-white font-s-24 hover-btn-color-orange" onclick="closeDialog('dialog')"> x </button>
+                    <button class="btn-white clr-backg-black clr-white font-s-24 hover-btn-color-orange" onclick="closeDialog('dialog')" aria-label="Close Dialog"> x </button>
                 </div>
-                <img src="./assets/icons/Logo-Bestell-App.png" class="m-b80">
-                <span class="font-w-700 font-s-42 m-b24">The order cannot be added!</span>
-                <span class="font-w-700 font-s-29">The maximum quantity is 10 per unit.</span>
-                <span class="font-w-700 font-s-29">We apologize for the inconvenience.</span>
+                <img src="./assets/icons/Logo-Bestell-App.png" class="m-b80" alt="Logo Bestell App">
+                <span class="font-w-700 font-s-42 m-b24 text-align-c">The order cannot be added!</span>
+                <span class="font-w-700 font-s-29 text-align-c">The maximum quantity is 10 per unit.</span>
+                <span class="font-w-700 font-s-29 text-align-c">We apologize for the inconvenience.</span>
+            </div>
+    `
+}
+
+function templateFunctionNotImplemented() {
+    return `
+            <div class="clr-backg-black clr-white dialog-container p-32 border-r-12">
+                <div class="dialog-close">
+                    <button class="btn-white clr-backg-black clr-white font-s-24 hover-btn-color-orange" onclick="closeDialog('dialog')" aria-label="Close Dialog"> x </button>
+                </div>
+                <img src="./assets/icons/Logo-Bestell-App.png" class="m-b80" alt="Logo Bestell App">
+                <span class="font-w-700 font-s-42 m-b24 text-align-c">The Function is not implemented!</span>
+                <span class="font-w-700 font-s-29 text-align-c">We apologize for the inconvenience.</span>
             </div>
     `
 }
 
 function templateDialogBasketEmpty() {
     return `
-                <div class="basket-responsive">
+                <div class="basket-responsive" id="basket-responsive">
                 <div class="dialog-close">
-                    <button class="btn clr-backg-black clr-lightOrange font-s-32 hover-btn-color-orange" onclick="closeDialog('dialog-responsive')"> x </button>
+                    <button class="btn clr-backg-black clr-white font-s-32 hover-btn-color-orange" onclick="closeDialog('dialog-responsive')" aria-label="Close Dialog"> x </button>
                 </div>
-                <h2 class="font-w-700 font-s-48 clr-lightOrange">Your Basket</h2>
-                <div class="font-w-500 font-s-32 clr-lightOrange text-align-c m-b80">
+                <h2 class="font-w-700 font-s-48 clr-white">Your Basket</h2>
+                <div class="font-w-500 font-s-32 clr-white text-align-c m-b80">
                     <span>Nothing here yet.</span>
                     <br>
                     <span>Go ahead and choose something delicious!</span>
                 </div>
                 <div class="d-flex-center">
-                    <img class="img-shop-card" src="./assets/icons/shopping_cart.png" alt="">
+                    <img class="img-shop-card" src="./assets/icons/shopping_cart.png" alt="shop card image">
                 </div>
             </div>
             <div class="responsive-control clr-backg-black border-top">
-                <button class="home-btn" onclick="openBasketResponsive()"></button>
-                <button class="shopping-cart-btn"></button>
-                <button class="order-btn"></button>
-                <button class="profile-btn"></button>
+                <button class="home-btn" onclick="openFunctionNotImplemented()" aria-label="Home Button"></button>
+                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"></button>
+                <button class="order-btn" onclick="openPopUpDeliverOrder()" aria-label="Order delivery"></button>
+                <button class="profile-btn" onclick="openFunctionNotImplemented()" aria-label="Profile Button"></button>
             </div>
     `
 }
 
 function templateDialogBasketMenu(priceMeals, priceTotal, deliveryFee) {
     return `
-            <div class="basket-responsive">
+            <div class="basket-responsive" id="basket-responsive">
                 <div class="dialog-close">
-                    <button class="btn clr-backg-black clr-lightOrange font-s-32 hover-btn-color-orange" onclick="closeDialog('dialog-responsive')"> x </button>
+                    <button class="btn clr-backg-black clr-white font-s-32 hover-btn-color-orange" onclick="closeDialog('dialog-responsive')" aria-label="Close Dialog"> x </button>
                 </div>
                 <h2 class="font-w-700 font-s-48 clr-white">Your Basket</h2>
-                <div class="scroll-container" id="basket-items"></div>
+                <div class="scroll-container" id="basket-items-responsive"></div>
                 <div class="m-b80 width-100"> 
                     <div class="font-w-600 font-s-32 clr-white pb-8 d-flex-space-btw">
                         <span >Subtotal</span>
@@ -204,13 +217,13 @@ function templateDialogBasketMenu(priceMeals, priceTotal, deliveryFee) {
                         <span id="price-total">${priceTotal}€</span>
                     </div>
                 </div>
-                <button class="font-w-700 font-s-48 btn-buy clr-white clr-backg-orange" id="price-total-btn" onclick="openPopUpDeliverOrder()">Buy now ${priceTotal}€</button>
+                <button class="font-w-700 font-s-48 btn-buy clr-white clr-backg-orange" id="price-total-btn" onclick="openPopUpDeliverOrder()" aria-label="Order Button">Buy now ${priceTotal}€</button>
             </div> 
             <div class="responsive-control clr-backg-black border-top">
-                <button class="home-btn" onclick="openBasketResponsive()"></button>
-                <button class="shopping-cart-btn"></button>
-                <button class="order-btn"></button>
-                <button class="profile-btn"></button>
+                <button class="home-btn" onclick="openFunctionNotImplemented()" aria-label="Home Button"></button>
+                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"></button>
+                <button class="order-btn" onclick="openPopUpDeliverOrder()" aria-label="Order delivery"></button>
+                <button class="profile-btn" onclick="openFunctionNotImplemented()" aria-label="Profile Button"></button>
             </div>
     `
 }

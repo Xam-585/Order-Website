@@ -91,9 +91,7 @@
 }
 
 /*color*/
-.d-none {
-    display: none;
-}
+
 
 .clr-backg-lightOrange {
     background-color: #FDEADC;
@@ -138,4 +136,8 @@
 .border-top {
     border-top-color: #726D6D;
     border-top-style: solid;
+}
+
+.d-none {
+    display: none !important;
 }
