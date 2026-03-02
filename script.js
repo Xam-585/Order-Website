@@ -145,11 +145,8 @@ let mobileResposive = false;
             myDishes[i].amount = myDishes[i].amount - 1;
             calculatePrice(myDishes[i].amount, myDishes[i].price);
             calculateRemovePriceTotal(myDishes[i].price);
-            if (mobileResposive === false) {
-                updateBasketItem(i);
-            }
-        updateMenuButton(i);
-
+            updateBasketItem(i);
+            updateMenuButton(i);
         }
         else {
             deletItemBasket(i);
