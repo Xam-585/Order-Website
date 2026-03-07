@@ -8,7 +8,10 @@ let totalPrice = 0;
 const deliveryFee = 4.99;
 let mobileResposive = false;
 
-    /*Eventlistener for window resiz */
+
+
+function Eventlistener() {
+        /*Eventlistener for window resiz */
     window.addEventListener('resize', checkResponsiveChanged)
 
     /*Eventlistener for dialog close */
@@ -24,6 +27,8 @@ let mobileResposive = false;
             }
         }
     });
+}
+
 
     /*check Responsive change*/
     function checkResponsiveChanged() {
@@ -51,6 +56,7 @@ let mobileResposive = false;
 
     /*onload function*/
     function loadPage() {
+        Eventlistener();
         checkResponsive();
         loadHero();
         loadSections();
@@ -116,14 +122,10 @@ let mobileResposive = false;
         totalPrice = subTotalPrice + deliveryFee;
     }
 
-    function calculateAddPriceTotal(dishPrice) {
-        subTotalPrice = subTotalPrice + dishPrice;
-        totalPrice  = totalPrice + dishPrice;
-    }
-
-    function calculateRemovePriceTotal(dishPrice) {
-        subTotalPrice = subTotalPrice - dishPrice;
-        totalPrice  = totalPrice - dishPrice;
+    function calculateOperaterPriceTotal(dishPrice ,arithmetic) {
+        const factor = arithmetic === "add" ? 1 : -1; 
+        subTotalPrice = subTotalPrice + dishPrice * factor;
+        totalPrice  = totalPrice + dishPrice * factor;
     }
 
     /*menu function*/
@@ -131,7 +133,7 @@ let mobileResposive = false;
         if (myDishes[i].amount < 10) {
             myDishes[i].amount = myDishes[i].amount + 1;
             calculatePrice(myDishes[i].amount, myDishes[i].price);
-            calculateAddPriceTotal(myDishes[i].price);
+            calculateOperaterPriceTotal(myDishes[i].price , "add");
             updateBasketItem(i);
             updateMenuButton(i);
         }
@@ -144,7 +146,7 @@ let mobileResposive = false;
         if (myDishes[i].amount > 1) {
             myDishes[i].amount = myDishes[i].amount - 1;
             calculatePrice(myDishes[i].amount, myDishes[i].price);
-            calculateRemovePriceTotal(myDishes[i].price);
+            calculateOperaterPriceTotal(myDishes[i].price , "remove");
             updateBasketItem(i);
             updateMenuButton(i);
         }
