@@ -43,3 +43,8 @@ dialog img {
     margin-bottom: 80px;
 }
 
+.dialog-background {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    height: 100vh;
+    width: 100%;
+}

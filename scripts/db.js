@@ -116,4 +116,3 @@ let testRatingData = {
     score: 4.1,
     reviews: 317,
 }
-

@@ -132,9 +132,6 @@ function templateUpdateBasketItem(i, priceMeal) {
 function templateDialogOrderDeliver() {
     return `
             <div class="clr-backg-black clr-white dialog-container p-32 border-r-12">
-                <div class="dialog-close">
-                    <button class="btn-white clr-backg-black clr-white font-s-24 hover-btn-color-orange" onclick="closeDialog('dialog')" aria-label="Close Dialog"> x </button>
-                </div>
                 <img src="./assets/icons/foodsTruck.png" class="transform-rotate-180" alt="Foodtruck Image">
                 <span class="font-w-700 font-s-42 text-align-c">Order confirmed!</span>
                 <span class="font-w-700 font-s-29 text-align-c">Youre food is on the way!</span>
@@ -145,9 +142,6 @@ function templateDialogOrderDeliver() {
 function templateDialogOrderDenied() {
     return `
             <div class="clr-backg-black clr-white dialog-container p-32 border-r-12">
-                <div class="dialog-close">
-                    <button class="btn-white clr-backg-black clr-white font-s-24 hover-btn-color-orange" onclick="closeDialog('dialog')" aria-label="Close Dialog"> x </button>
-                </div>
                 <img src="./assets/icons/Logo-Bestell-App.png" class="m-b80" alt="Logo Bestell App">
                 <span class="font-w-700 font-s-42 m-b24 text-align-c">The order cannot be added!</span>
                 <span class="font-w-700 font-s-29 text-align-c">The maximum quantity is 10 per unit.</span>
@@ -159,9 +153,6 @@ function templateDialogOrderDenied() {
 function templateFunctionNotImplemented() {
     return `
             <div class="clr-backg-black clr-white dialog-container p-32 border-r-12">
-                <div class="dialog-close">
-                    <button class="btn-white clr-backg-black clr-white font-s-24 hover-btn-color-orange" onclick="closeDialog('dialog')" aria-label="Close Dialog"> x </button>
-                </div>
                 <img src="./assets/icons/Logo-Bestell-App.png" class="m-b80" alt="Logo Bestell App">
                 <span class="font-w-700 font-s-42 m-b24 text-align-c">The Function is not implemented!</span>
                 <span class="font-w-700 font-s-29 text-align-c">We apologize for the inconvenience.</span>
@@ -187,14 +178,14 @@ function templateDialogBasketEmpty() {
             </div>
             <div class="responsive-control clr-backg-black border-top">
                 <button class="home-btn" onclick="openFunctionNotImplemented()" aria-label="Home Button"></button>
-                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"></button>
+                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"><div class="responsive-shoppingcart-items">0</div></button>
                 <button class="order-btn" onclick="openPopUpDeliverOrder()" aria-label="Order delivery"></button>
                 <button class="profile-btn" onclick="openFunctionNotImplemented()" aria-label="Profile Button"></button>
             </div>
     `
 }
 
-function templateDialogBasketMenu(priceMeals, priceTotal, deliveryFee) {
+function templateDialogBasketMenu(priceMeals, priceTotal, deliveryFee, shoppingCard) {
     return `
             <div class="basket-responsive" id="basket-responsive">
                 <div class="dialog-close">
@@ -221,9 +212,19 @@ function templateDialogBasketMenu(priceMeals, priceTotal, deliveryFee) {
             </div> 
             <div class="responsive-control clr-backg-black border-top">
                 <button class="home-btn" onclick="openFunctionNotImplemented()" aria-label="Home Button"></button>
-                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"></button>
+                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"><div id="shopping-cart-number" class="responsive-shoppingcart-items">${shoppingCard}</div></button>
                 <button class="order-btn" onclick="openPopUpDeliverOrder()" aria-label="Order delivery"></button>
                 <button class="profile-btn" onclick="openFunctionNotImplemented()" aria-label="Profile Button"></button>
             </div>
+    `
+}
+
+
+function ResponsiveControlTemplate(shoppingCard) {
+    return `
+                <button class="home-btn" onclick="openFunctionNotImplemented()" aria-label="Home Button"></button>
+                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"><div id="shopping-cart-number" class="responsive-shoppingcart-items">${shoppingCard}</div></button>
+                <button class="order-btn" onclick="openPopUpDeliverOrder()" aria-label="Order delivery"></button>
+                <button class="profile-btn" onclick="openFunctionNotImplemented()" aria-label="Profile Button"></button>
     `
 }

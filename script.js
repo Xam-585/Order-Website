@@ -7,24 +7,28 @@ let subTotalPrice = 0;
 let totalPrice = 0;
 const deliveryFee = 4.99;
 let mobileResposive = false;
+let shoppingCard = 0;
 
 
-/*Eventlistener for window resiz */ /*Eventlistener for dialog close */
-function Eventlistener() {
+/*Eventlistener for window resiz */ 
+
     window.addEventListener('resize', checkResponsiveChanged)
-    document.addEventListener("keydown", function dialogButtonControl(evt) {
-        if (document.getElementById('dialog-responsive').classList.contains('open')) {
-            if (evt.code == 'Escape') {
-                closeDialog('dialog-responsive');
+
+/*Eventlistener for dialog close with escape*/
+    function escListener() {
+            document.addEventListener("keydown", function dialogButtonControl(evt) {
+            if (document.getElementById('dialog-responsive').classList.contains('open')) {
+                if (evt.code == 'Escape') {
+                    closeDialog('dialog-responsive');
+                }
             }
-        }
-        if (document.getElementById('dialog').classList.contains('open')) {
-            if (evt.code == 'Escape') {
-                closeDialog('dialog');
+            if (document.getElementById('dialog').classList.contains('open')) {
+                if (evt.code == 'Escape') {
+                    closeDialog('dialog');
+                }
             }
-        }
-    });
-}
+        });
+    }
 
     /*check Responsive change*/
     function checkResponsiveChanged() {
@@ -47,17 +51,19 @@ function Eventlistener() {
         }
         if (mobileResposive === false && (document.getElementById('basket-responsive') !== null)) {
             document.getElementById('basket-responsive').innerHTML = "";
+            closeDialog('dialog-responsive');
         }
     }
 
     /*onload function*/
     function loadPage() {
-        Eventlistener();
+        escListener();
         checkResponsive();
         loadHero();
         loadSections();
         loadDishes();
         checkBasket();
+        loadResponsiveControll();
     }
 
     /*check for responsive*/
@@ -128,7 +134,7 @@ function Eventlistener() {
 
     function amountChange(i ,arithmetic) {
         let calc = true;
-        if (myDishes[i].amount > 10 && arithmetic === "add") {
+        if (myDishes[i].amount >= 10 && arithmetic === "add") {
             openPopUpMaxAmount(i);
             calc = false;
         }
@@ -144,36 +150,6 @@ function Eventlistener() {
             updateMenuButton(i);  
         }
 }
-
-
-/*
-
-    function addDish(i) {
-        if (myDishes[i].amount < 10) {
-            myDishes[i].amount = myDishes[i].amount + 1;
-            calculatePrice(myDishes[i].amount, myDishes[i].price);
-            calculateOperaterPriceTotal(myDishes[i].price , "add");
-            updateBasketItem(i);
-            updateMenuButton(i);
-        }
-        else {
-            openPopUpMaxAmount(i);
-        }
-    }
-
-    function removeOneDish(i) {
-        if (myDishes[i].amount > 1) {
-            myDishes[i].amount = myDishes[i].amount - 1;
-            calculatePrice(myDishes[i].amount, myDishes[i].price);
-            calculateOperaterPriceTotal(myDishes[i].price , "remove");
-            updateBasketItem(i);
-            updateMenuButton(i);
-        }
-        else {
-            deletItemBasket(i);
-        }
-    }
-        */
 
     function updateMenuButton(i) {
             let dishIdButton = document.getElementById('add-Basket'+ i)
@@ -231,11 +207,18 @@ function Eventlistener() {
             basket.innerHTML = templateBasket(subTotalPrice.toFixed(2), totalPrice.toFixed(2) , deliveryFee);
         }
         else {
-            basket.innerHTML = templateDialogBasketMenu(subTotalPrice.toFixed(2), totalPrice.toFixed(2) , deliveryFee);
+            basket.innerHTML = templateDialogBasketMenu(subTotalPrice.toFixed(2), totalPrice.toFixed(2) , deliveryFee, shoppingCard);
         }
         let basketItem = getBasketItemContainer();
         basketItem.innerHTML = tempHtml;   
     }
+
+    function loadResponsiveControll() {
+        let docRef = document.getElementById('responsive-control');
+        docRef.innerHTML = ResponsiveControlTemplate(shoppingCard);
+    }
+
+
 
     function emptyTheBasket() {
         for (const i in myDishes) {
@@ -309,9 +292,11 @@ function Eventlistener() {
             let priceTotalBtn = document.getElementById('price-total-btn');
             let priceTotal = document.getElementById('price-total');
             let priceSubtotal = document.getElementById('price-subtotal');
+            let shoppingCardNumber = document.getElementById('shopping-cart-number');
             priceSubtotal.textContent = subTotalPrice.toFixed(2) + "€";
             priceTotalBtn.textContent = "Buy now " + totalPrice.toFixed(2) + "€";
             priceTotal.textContent = totalPrice.toFixed(2) + "€";
+            shoppingCardNumber.textContent = shoppingCard;
     }
 
     function deletItemBasket(i) {
@@ -366,9 +351,10 @@ function Eventlistener() {
         id.classList.add('open');
         document.body.classList.add('no-scroll');
         if (id === document.getElementById('dialog')) {
+        id.classList.add('dialog-background');
             setTimeout(() => {
                 closeDialog('dialog');
-            }, 2000);
+            }, 5000);
         }
     }
 

@@ -9,7 +9,18 @@
     justify-content: space-evenly;
     align-items: center;
 }
-
+.responsive-shoppingcart-items {
+    background-color: white;
+    border-radius: 999px;
+    position: relative;
+    bottom: 14px;
+    left: 14px;
+    height: 18px;
+    width: 18px;
+    font-size: 18px;
+    color: #E76C1F;
+    font-weight: 700;
+}
 @media (min-width: 950px) {
     .responsive-control {
         display: none;
