@@ -8,7 +8,7 @@ function templateDishes(i, btn) {
                     <span class=" font-s-16">${myDishes[i].description}</span>
                 </div>
                 <div class="add-item" id="add-item${i}">
-                    <span class="font-s-24 font-w-600">${myDishes[i].price}€</span>
+                    <span class="font-s-24 font-w-600">${myDishes[i].price.toFixed(2)}€</span>
                     <button class="font-s-16 font-w-600 btn p-8 hover-btn-color-orange" id="add-Basket${i}" onclick="addDish(${i})" aria-label="Add Dish">${btn}</button>
                 </div>
             </div>
