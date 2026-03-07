@@ -9,12 +9,9 @@ const deliveryFee = 4.99;
 let mobileResposive = false;
 
 
-
+/*Eventlistener for window resiz */ /*Eventlistener for dialog close */
 function Eventlistener() {
-        /*Eventlistener for window resiz */
     window.addEventListener('resize', checkResponsiveChanged)
-
-    /*Eventlistener for dialog close */
     document.addEventListener("keydown", function dialogButtonControl(evt) {
         if (document.getElementById('dialog-responsive').classList.contains('open')) {
             if (evt.code == 'Escape') {
@@ -28,7 +25,6 @@ function Eventlistener() {
         }
     });
 }
-
 
     /*check Responsive change*/
     function checkResponsiveChanged() {
@@ -129,6 +125,29 @@ function Eventlistener() {
     }
 
     /*menu function*/
+
+    function amountChange(i ,arithmetic) {
+        let calc = true;
+        if (myDishes[i].amount > 10 && arithmetic === "add") {
+            openPopUpMaxAmount(i);
+            calc = false;
+        }
+        if (myDishes[i].amount === 1 && arithmetic === "remove") {
+            deletItemBasket(i);
+            calc = false;
+        }
+        if (calc) {
+            myDishes[i].amount += arithmetic === "add" ? +1 : - 1;
+            calculatePrice(myDishes[i].amount, myDishes[i].price);
+            calculateOperaterPriceTotal(myDishes[i].price , arithmetic);
+            updateBasketItem(i);
+            updateMenuButton(i);  
+        }
+}
+
+
+/*
+
     function addDish(i) {
         if (myDishes[i].amount < 10) {
             myDishes[i].amount = myDishes[i].amount + 1;
@@ -154,6 +173,7 @@ function Eventlistener() {
             deletItemBasket(i);
         }
     }
+        */
 
     function updateMenuButton(i) {
             let dishIdButton = document.getElementById('add-Basket'+ i)

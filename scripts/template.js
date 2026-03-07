@@ -9,7 +9,7 @@ function templateDishes(i, btn) {
                 </div>
                 <div class="add-item" id="add-item${i}">
                     <span class="font-s-24 font-w-600">${myDishes[i].price.toFixed(2)}€</span>
-                    <button class="font-s-16 font-w-600 btn p-8 hover-btn-color-orange" id="add-Basket${i}" onclick="addDish(${i})" aria-label="Add Dish">${btn}</button>
+                    <button class="font-s-16 font-w-600 btn p-8 hover-btn-color-orange" id="add-Basket${i}" onclick="amountChange(${i},'add')" aria-label="Add Dish">${btn}</button>
                 </div>
             </div>
     `
@@ -106,9 +106,9 @@ function templateBasketItems(i, priceMeal) {
                         <div class="d-flex-space-btw" id="name-overview${i}">
                             <div class="d-flex-center">
                                 <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange btn-trash" id="trashBtn-bottum-${i}" onclick="deletItemBasket(${i})" aria-label="Delete Order"></button>
-                                <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="removeOneDish(${i})" aria-label="Remove one Dish">-</button>
+                                <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="amountChange(${i},'remove')" aria-label="Remove one Dish">-</button>
                                 <div class="font-w-600 font-s-24 transformY-4">${myDishes[i].amount}</div>
-                                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange" onclick="addDish(${i})" aria-label="Add Dish">+</button>
+                                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange" onclick="amountChange(${i},'add')" aria-label="Add Dish">+</button>
                             </div>
                             <span class="font-w-700 font-s-22 clr-gray">${priceMeal}€</span>
                         </div>
@@ -120,9 +120,9 @@ function templateUpdateBasketItem(i, priceMeal) {
     return `
             <div class="d-flex-center">
                 <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange btn-trash" id="trashBtn-bottum-${i}" onclick="deletItemBasket(${i})" aria-label="Delete Order"></button>
-                <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="removeOneDish(${i})" aria-label="Remove one Dish">-</button>
+                <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="amountChange(${i},'remove')" aria-label="Remove one Dish">-</button>
                 <div class="font-w-600 font-s-24 transformY-4">${myDishes[i].amount}</div>
-                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange" onclick="addDish(${i})" aria-label="Add Dish">+</button>
+                <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange" onclick="amountChange(${i},'add')" aria-label="Add Dish">+</button>
             </div>
             <span class="font-w-700 font-s-22 clr-gray">${priceMeal}€</span>
     `
