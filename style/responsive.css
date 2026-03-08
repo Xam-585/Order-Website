@@ -150,15 +150,6 @@
     .font-s-24 {
         font-size: 16px;
     }
-    .font-s-16{
-        font-size: 14px;
-    }
-    .font-s-18 {
-        font-size: 12px;
-    }
-    .font-s-20 {
-        font-size: 14px;
-    }
     .hero-background-image {
         height: 280px;
     }
@@ -196,7 +187,6 @@
     .basket-meal-container {
         min-width: 300px;
     }
-
 }
 
 @media (max-width: 400px) {
@@ -246,7 +236,7 @@
         margin-top: -35px;
     }
     .font-s-22 {
-        font-size: 12px;
+        font-size: 16px;
     }
     .div-line img {
         margin: 0 20px;
@@ -261,6 +251,6 @@
         font-size: 20px;
     }
     .font-s-29 {
-        font-size: 12px;
+        font-size: 16px;
     }
 }

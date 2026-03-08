@@ -70,7 +70,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
 }
 
 .d-flex-space-btw {
@@ -140,4 +139,12 @@
 
 .d-none {
     display: none !important;
+}
+
+.gap-12 {
+    gap: 12px !important;
+}
+
+.gap-4 {
+    gap: 4px !important;
 }

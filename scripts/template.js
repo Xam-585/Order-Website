@@ -32,7 +32,7 @@ function templateHero(rating, reviews) {
                         <span class="font-w-400 font-s-18">(${reviews})</span>
                     </div>
                 </div>
-                <div class="d-flex-center">
+                <div class="d-flex-center gap-4">
                     <span class="font-w-700 font-s-24 text-align-c">The best Burgers, Pizza, and Green, all in one great place</span>
                 </div>
             </div>
@@ -41,7 +41,7 @@ function templateHero(rating, reviews) {
 
 function templateSection(i) {
     return `
-            <div class="div-line d-flex-center m-b80">
+            <div class="div-line d-flex-center gap-4 m-b80">
                 <div class="wrapper div-line-positioning">
                     <img src="${myCategorys[i].icon}" alt="Icon of ${myCategorys[i].name}">
                     <h2 class="clr-white font-s-48 m-0 pb-8">${myCategorys[i].name}</h2>
@@ -90,7 +90,7 @@ function templateBasketEmpty() {
                     <br>
                     <span>Go ahead and choose something delicious!</span>
                 </div>
-                <div class="d-flex-center">
+                <div class="d-flex-center gap-4">
                     <img class="img-shop-card" src="./assets/icons/shopping_cart.png" alt="shop card image">
                 </div>
             </div>
@@ -107,7 +107,7 @@ function templateBasketItems(i, priceMeal) {
                             <button class="btn-white hover-btn-color-orange d-none btn-trash" id="trashBtn-top-${i}" onclick="deletItemBasket(${i})" aria-label="Delete Order"></button>
                         </div>
                         <div class="d-flex-space-btw" id="name-overview${i}">
-                            <div class="d-flex-center">
+                            <div class="d-flex-center gap-12">
                                 <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange btn-trash" id="trashBtn-bottum-${i}" onclick="deletItemBasket(${i})" aria-label="Delete Order"></button>
                                 <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="amountChange(${i},'remove')" aria-label="Remove one Dish">-</button>
                                 <div class="font-w-600 font-s-24 transformY-4">${myDishes[i].amount}</div>
@@ -121,7 +121,7 @@ function templateBasketItems(i, priceMeal) {
 
 function templateUpdateBasketItem(i, priceMeal) {
     return `
-            <div class="d-flex-center">
+            <div class="d-flex-center gap-12">
                 <button class="font-w-600 font-s-24 btn-white hover-btn-color-orange btn-trash" id="trashBtn-bottum-${i}" onclick="deletItemBasket(${i})" aria-label="Delete Order"></button>
                 <button class="font-w-600 font-s-24 btn-white d-none hover-btn-color-orange m-b4" id="minusBtn-${i}" onclick="amountChange(${i},'remove')" aria-label="Remove one Dish">-</button>
                 <div class="font-w-600 font-s-24 transformY-4">${myDishes[i].amount}</div>
@@ -175,7 +175,7 @@ function templateDialogBasketEmpty() {
                     <br>
                     <span>Go ahead and choose something delicious!</span>
                 </div>
-                <div class="d-flex-center">
+                <div class="d-flex-center gap-4">
                     <img class="img-shop-card" src="./assets/icons/shopping_cart.png" alt="shop card image">
                 </div>
             </div>
