@@ -5,15 +5,21 @@
     border-radius: 999px;
     margin: 4px 0px;
 }
+.basket-div {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 
 .basket {
     z-index: 1;
     position: fixed;
-    right: 0px;
-    top: 0px;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .basket h2{
     text-align: center;
@@ -65,4 +71,11 @@
 .img-shop-card {
     height: 120px;
     width: 120px;
+}
+
+.div-basket {
+    max-width: 1440px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
 }

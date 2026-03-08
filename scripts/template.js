@@ -41,14 +41,13 @@ function templateHero(rating, reviews) {
 
 function templateSection(i) {
     return `
-            <div class="menu-section"  id="menu-section${i}">
-                <div class="div-line d-flex-center m-b80">
-                    <div class="wrapper div-line-positioning">
-                        <img src="${myCategorys[i].icon}" alt="Icon of ${myCategorys[i].name}">
-                        <h2 class="clr-white font-s-48 m-0 pb-8">${myCategorys[i].name}</h2>
-                    </div>
-                </div> 
-            </div>
+            <div class="div-line d-flex-center m-b80">
+                <div class="wrapper div-line-positioning">
+                    <img src="${myCategorys[i].icon}" alt="Icon of ${myCategorys[i].name}">
+                    <h2 class="clr-white font-s-48 m-0 pb-8">${myCategorys[i].name}</h2>
+                </div>
+            </div> 
+            <div class="menu-section"  id="menu-section${i}"></div>
     `
 }
 
@@ -56,6 +55,7 @@ function templateSection(i) {
 
 function templateBasket(priceMeals, priceTotal, deliveryFee) {
     return `
+        <div class="basket"> 
             <div class="basket-container" id="basket-container-default">
                 <h2 class="font-w-700 font-s-32 clr-white">Your Basket</h2>
                 <div class="scroll-container" id="basket-items"></div>
@@ -76,11 +76,13 @@ function templateBasket(priceMeals, priceTotal, deliveryFee) {
                 </div>
                 <button class="font-w-700 font-s-32 btn-buy clr-white clr-backg-orange" id="price-total-btn" onclick="openPopUpDeliverOrder()" aria-label="Order Button">Buy now ${priceTotal}€</button>
             </div> 
+        </div> 
     `
 }
 
 function templateBasketEmpty() {
     return `
+        <div class="basket"> 
             <div class="basket-container" id="basket-container-default">
                 <h2 class="font-w-700 font-s-32 clr-white">Your Basket</h2>
                 <div class="font-w-500 font-s-24 clr-white text-align-c m-b80">
@@ -92,6 +94,7 @@ function templateBasketEmpty() {
                     <img class="img-shop-card" src="./assets/icons/shopping_cart.png" alt="shop card image">
                 </div>
             </div>
+        </div>
     `
 }
 
@@ -212,7 +215,7 @@ function templateDialogBasketMenu(priceMeals, priceTotal, deliveryFee, shoppingC
             </div> 
             <div class="responsive-control clr-backg-black border-top">
                 <button class="home-btn" onclick="openFunctionNotImplemented()" aria-label="Home Button"></button>
-                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"><div id="shopping-cart-number" class="responsive-shoppingcart-items">${shoppingCard}</div></button>
+                <button class="shopping-cart-btn" onclick="openBasketResponsive()" aria-label="Open Shoppingcart"><div id="shopping-cart-number-dialog" class="responsive-shoppingcart-items">${shoppingCard}</div></button>
                 <button class="order-btn" onclick="openPopUpDeliverOrder()" aria-label="Order delivery"></button>
                 <button class="profile-btn" onclick="openFunctionNotImplemented()" aria-label="Profile Button"></button>
             </div>

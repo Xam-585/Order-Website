@@ -30,7 +30,12 @@ let shoppingCard = 0;
         });
     }
 
-    /*check Responsive change*/
+    /*Responnsive handling*/
+    function loadResponsiveControll() {
+        let docRef = document.getElementById('responsive-control');
+        docRef.innerHTML = ResponsiveControlTemplate(shoppingCard);
+    }
+
     function checkResponsiveChanged() {
         let tempbool = mobileResposive;
         checkResponsive();
@@ -55,6 +60,15 @@ let shoppingCard = 0;
         }
     }
 
+    function checkResponsive() {
+        if (matchMedia("(max-width: 950px)").matches) {
+            mobileResposive = true;
+        }
+        else {
+            mobileResposive = false;
+        }
+    }
+
     /*onload function*/
     function loadPage() {
         escListener();
@@ -66,17 +80,7 @@ let shoppingCard = 0;
         loadResponsiveControll();
     }
 
-    /*check for responsive*/
-    function checkResponsive() {
-        if (matchMedia("(max-width: 950px)").matches) {
-            mobileResposive = true;
-        }
-        else {
-            mobileResposive = false;
-        }
-    }
-
-    /*start load function*/
+    /* Initial rendering */
     function loadHero() {
         const hero = document.getElementById('hero-section');
         let rating = testRatingData.score;
@@ -110,7 +114,7 @@ let shoppingCard = 0;
             }
         }
 
-    /*calculation*/
+    /* Price calculation */
     function calculatePrice(amount, price) {
         priceDish = amount * price;
     }
@@ -130,8 +134,7 @@ let shoppingCard = 0;
         totalPrice  = totalPrice + dishPrice * factor;
     }
 
-    /*menu function*/
-
+    /* Dish amount actions */
     function amountChange(i ,arithmetic) {
         let calc = true;
         if (myDishes[i].amount >= 10 && arithmetic === "add") {
@@ -144,33 +147,34 @@ let shoppingCard = 0;
         }
         if (calc) {
             myDishes[i].amount += arithmetic === "add" ? +1 : - 1;
+            shoppingCard += arithmetic === "add" ? +1 : - 1;
             calculatePrice(myDishes[i].amount, myDishes[i].price);
             calculateOperaterPriceTotal(myDishes[i].price , arithmetic);
             updateBasketItem(i);
-            updateMenuButton(i);  
+            updateMenuButton(i);
+            shoppingCartValues();
         }
-}
+    }
 
+    /* DOM updates */
     function updateMenuButton(i) {
             let dishIdButton = document.getElementById('add-Basket'+ i)
             dishIdButton.innerHTML = basketBtnAdd + " " + myDishes[i].amount;
     }
 
-    function checkBasket() {
-        let tempHtml = "";
-        basketStatus();
+    function menuBtnDefault(i) {
+        let btnMenu = 'add-Basket' + i;
+        document.getElementById(btnMenu).innerHTML = basketBtndefault;
+    }
+
+    function updateBasketItem(i) {
         if (basket === true) {
-            for(const i in myDishes){
-                if (myDishes[i].amount  > 0) {
-                    tempHtml += generateBasketHtml(i);
-                }
-            }
-        }
-        if (basket === true) {
-            loadBasket(tempHtml);
+            updateBasketItemDefault(i);
+            updateBasketItemAssets(i);
+            updateBasketValues();
         }
         else {
-            getEmptyBasketTemplate();
+            checkBasket();
         }
     }
 
@@ -192,58 +196,7 @@ let shoppingCard = 0;
         temp += templateBasketItems(i, priceDish.toFixed(2));
         return temp;
     }
-    function getBasketItemContainer() {
-        return document.getElementById(mobileResposive ? 'basket-items-responsive' : 'basket-items');
-    }
 
-    function getBasket() {
-        return document.getElementById(mobileResposive ? 'dialog-responsive' : 'basket');
-    }
-
-    function loadBasket(tempHtml) {
-
-        let basket = getBasket();
-        if (mobileResposive === false) {
-            basket.innerHTML = templateBasket(subTotalPrice.toFixed(2), totalPrice.toFixed(2) , deliveryFee);
-        }
-        else {
-            basket.innerHTML = templateDialogBasketMenu(subTotalPrice.toFixed(2), totalPrice.toFixed(2) , deliveryFee, shoppingCard);
-        }
-        let basketItem = getBasketItemContainer();
-        basketItem.innerHTML = tempHtml;   
-    }
-
-    function loadResponsiveControll() {
-        let docRef = document.getElementById('responsive-control');
-        docRef.innerHTML = ResponsiveControlTemplate(shoppingCard);
-    }
-
-
-
-    function emptyTheBasket() {
-        for (const i in myDishes) {
-            myDishes[i].amount = 0;
-            menuBtnDefault(i);
-        }
-        basket = false;
-        getEmptyBasketTemplate();
-    }
-
-    function menuBtnDefault(i) {
-        let btnMenu = 'add-Basket' + i;
-        document.getElementById(btnMenu).innerHTML = basketBtndefault;
-    }
-
-    function updateBasketItem(i) {
-        if (basket === true) {
-            updateBasketItemDefault(i);
-            updateBasketItemAssets(i);
-            updateBasketValues();
-        }
-        else {
-            checkBasket();
-        }
-    }
     function updateBasketItemDefault(i) {
         if ((document.getElementById('basket-container' + i) !== null)) {
             let basketItemName = document.getElementById('basket-dish-name' + i)
@@ -254,21 +207,6 @@ let shoppingCard = 0;
         else {
         let basketItem = getBasketItemContainer();
         basketItem.innerHTML += templateBasketItems(i, priceDish.toFixed(2));
-        }
-    }
-
-    function basketStatus() {
-        let count = 0;
-        for (const n in myDishes) {
-            if (myDishes[n].amount > 0) {
-                count = count + 1;
-            }
-        }
-        if (count === 0) {
-            basket = false;
-        }
-        else {
-            basket = true;
         }
     }
 
@@ -292,14 +230,88 @@ let shoppingCard = 0;
             let priceTotalBtn = document.getElementById('price-total-btn');
             let priceTotal = document.getElementById('price-total');
             let priceSubtotal = document.getElementById('price-subtotal');
-            let shoppingCardNumber = document.getElementById('shopping-cart-number');
             priceSubtotal.textContent = subTotalPrice.toFixed(2) + "€";
             priceTotalBtn.textContent = "Buy now " + totalPrice.toFixed(2) + "€";
             priceTotal.textContent = totalPrice.toFixed(2) + "€";
-            shoppingCardNumber.textContent = shoppingCard;
+    }
+
+    function shoppingCartValues() {
+        let shoppingCardNumber = document.getElementById('shopping-cart-number');
+        let shoppingCardNumberDialog = document.getElementById('shopping-cart-number-dialog');
+        shoppingCardNumber.textContent = shoppingCard;
+        shoppingCardNumberDialog.textContent = shoppingCard;
+    }
+
+    /* Basket state and rendering */
+    function checkBasket() {
+        shoppingCard = 0;
+        let tempHtml = "";
+        basketStatus();
+        if (basket === true) {
+            for(const i in myDishes){
+                if (myDishes[i].amount  > 0) {
+                    shoppingCard += myDishes[i].amount;
+                    tempHtml += generateBasketHtml(i);
+                }
+            }
+        }
+        if (basket === true) {
+            loadBasket(tempHtml);
+        }
+        else {
+            getEmptyBasketTemplate();
+        }
+    }
+
+    function getBasketItemContainer() {
+        return document.getElementById(mobileResposive ? 'basket-items-responsive' : 'basket-items');
+    }
+
+    function getBasket() {
+        return document.getElementById(mobileResposive ? 'dialog-responsive' : 'basket');
+    }
+
+    function loadBasket(tempHtml) {
+
+        let basket = getBasket();
+        if (mobileResposive === false) {
+            basket.innerHTML = templateBasket(subTotalPrice.toFixed(2), totalPrice.toFixed(2) , deliveryFee);
+        }
+        else {
+            basket.innerHTML = templateDialogBasketMenu(subTotalPrice.toFixed(2), totalPrice.toFixed(2) , deliveryFee, shoppingCard);
+        }
+        let basketItem = getBasketItemContainer();
+        basketItem.innerHTML = tempHtml;   
+    }
+
+    function emptyTheBasket() {
+        shoppingCard = 0;
+        for (const i in myDishes) {
+            myDishes[i].amount = 0;
+            menuBtnDefault(i);
+        }
+        shoppingCartValues();
+        basket = false;
+        getEmptyBasketTemplate();
+    }
+
+    function basketStatus() {
+        let count = 0;
+        for (const n in myDishes) {
+            if (myDishes[n].amount > 0) {
+                count = count + 1;
+            }
+        }
+        if (count === 0) {
+            basket = false;
+        }
+        else {
+            basket = true;
+        }
     }
 
     function deletItemBasket(i) {
+        shoppingCard -= myDishes[i].amount
         myDishes[i].amount = 0;
         let basketContainer = document.getElementById('basket-container' + i);
         basketContainer.remove();
@@ -314,7 +326,6 @@ let shoppingCard = 0;
         let btnMenu = 'add-Basket' + i;
         document.getElementById(btnMenu).innerHTML = basketBtndefault;
     }
-
 
     /*Dialog*/
     function openPopUpMaxAmount() {
@@ -354,7 +365,7 @@ let shoppingCard = 0;
         id.classList.add('dialog-background');
             setTimeout(() => {
                 closeDialog('dialog');
-            }, 5000);
+            }, 3500);
         }
     }
 
